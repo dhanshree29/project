@@ -1,0 +1,29 @@
+.dot, .dotred {
+  height: 25px;
+  width: 25px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotred {
+  background-color:red;
+}
+
+.dropdown {
+  list-style:none;
+}
+
+.down-menu{
+  padding-left: 0px;
+}
+
+.date-recipe, .pplc {
+  font-size: 14px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.ingredient{
+  margin-top:10px;
+}

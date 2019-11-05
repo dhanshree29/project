@@ -1,0 +1,49 @@
+<div *ngIf="error">
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="displayRecipe.imagePath" alt="" class="img-responsive" id="{{ displayRecipe.id }}" style="max-height: 300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ displayRecipe.name }}
+        <span class="dot" *ngIf="displayRecipe.indicator == 'veg'; else display "></span>
+        <ng-template #display>
+          <span class="dotred"></span>
+        </ng-template>
+      </h1>
+      <span class="date-recipe">{{ displayRecipe.creationDate | date: ' dd-MM-yyyy HH:mm' }}</span><br>
+      <span class="pplc"> <b>No of people:</b> {{ displayRecipe.eatCount }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group">
+        <ul class="down-menu">
+          <li class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" style="cursor: pointer;"
+              data-toggle="dropdown" role="button">Manage Recipe <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a style="cursor: pointer;" (click)="onRecipeEdit()" class="edit-recipe">Edit Recipe</a></li>
+              <li><a style="cursor: pointer;" (click)="onRecipeDelete()" class="delete-recipe">Delete Recipe</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 recipe-instruct">
+      <span><b>Recipe Instructions:</b></span>
+      <p>{{ displayRecipe.instructions }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <b>List of ingredients:</b>
+      <ul class="ingredient">
+        <li class="list-group-item" *ngFor="let ingredient of displayRecipe.ingredients">{{ ingredient.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

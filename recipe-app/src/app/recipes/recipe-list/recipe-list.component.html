@@ -1,0 +1,23 @@
+<div class="row recipe-listing">
+  <div class="col-xs-12">
+    <p *ngIf="isFetching">{{ loader }}</p>
+    <h1 *ngIf="recipes.length == 0 && !isFetching" class="msg-txt">{{ recipeMsg }}</h1>
+    <div *ngIf="recipes.length >= 1 && !isFetching">
+      <div class="filter">
+        <input type="text" class="search-box" [(ngModel)]="filterString" placeholder="Search for recipes..">
+        <span *ngFor="let recipeT of recipeType">
+          <input class="chkbox" id="{{ recipeT.type }}" type="checkbox" name="filterrecipe" [(ngModel)]="recipeT.checked"
+            (change)="recipeT.checked ? filterArr.push(recipeT.type) : filterArr.splice(filterArr.indexOf(recipeT.type), 1)" />
+          {{ recipeT.type }}
+        </span>
+      </div>
+      <div *ngIf="(recipes | recipesearch:filterString | recipefilter:filterArr).length === 0">
+        <h3>{{ filterMsg }}</h3>
+      </div>
+
+      <app-recipe-item [recipeItems]="recipe"
+        *ngFor="let recipe of recipes | recipesearch:filterString | recipefilter:filterArr; index as i">
+      </app-recipe-item>
+    </div>
+  </div>
+</div>

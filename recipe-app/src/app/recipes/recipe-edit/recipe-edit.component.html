@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Recipe Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+            <span *ngIf="!recipeForm.get('name').valid && recipeForm.get('name').touched">Please enter a valid recipe
+              name!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="eatCount">No of people</label>
+            <input type="text" id="pplCount" formControlName="eatCount" class="form-control">
+            <span *ngIf="!recipeForm.get('eatCount').valid && recipeForm.get('eatCount').touched">Please enter a valid
+              count!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="input" id="imagePath" class="form-control" formControlName="imagePath" #imagePath>
+            <span *ngIf="!recipeForm.get('imagePath').valid && recipeForm.get('imagePath').touched">Please enter valid image
+              Path!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="instructions">Cooking instructions</label>
+            <textarea type="text" id="description" class="form-control" formControlName="instructions"
+              rows="6"></textarea>
+            <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter
+              cooking Instructions!</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <input type="radio" class="radiobox" formControlName="indicator" value="veg" id="vegtype" checked> Veg
+          <input type="radio" class="radiobox" formControlName="indicator" value="nonveg" id="nonvegtype"> Non Veg<br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="ingredients">
+          <div class="row" *ngFor="let ingredient of getControls(); let i = index"
+            [formGroupName]="i" style="margin-top: 10px;">
+            <div class="col-xs-8">
+              <input type="text" id="name{{ i }}" class="form-control" formControlName="name" [@fadeInOut]>
+            </div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger delete-item" (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success add-item" (click)="onAddIngredient()">Add Ingredient</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row custom-btn">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success submit-btn" [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger cancle-btn" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
