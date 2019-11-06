@@ -9,28 +9,28 @@ describe('RecipeEntryComponent', () => {
   let component: RecipeEntryComponent;
   let fixture: ComponentFixture<RecipeEntryComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [RecipeEntryComponent]
     }).compileComponents();
-	
+
     fixture = TestBed.createComponent(RecipeEntryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render message in a h1 tag if true', async(() => {
+  it('should render message in a h1 tag if true', () => {
     const app = fixture.debugElement.componentInstance;
     app.count = true;
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Please select Recipe!');
-  }));
+  });
 
   it('should fetch recipe count when set', () => {
     const app = fixture.debugElement.componentInstance;
@@ -39,8 +39,7 @@ describe('RecipeEntryComponent', () => {
     recipeService.recipeCount.next(3);
     fixture.detectChanges();
     recipeService.recipeCount.subscribe(
-      countRecipe => app.count = countRecipe,
-      fail
+      countRecipe => app.count = countRecipe
     );
   });
 

@@ -3,7 +3,6 @@ import { RecipesearchPipe } from './recipesearch.pipe';
 describe('RecipesearchPipe', () => {
   let searchPipe: RecipesearchPipe;
 
-  // synchronous beforeEach
   beforeEach(() => {
     searchPipe = new RecipesearchPipe();
   });

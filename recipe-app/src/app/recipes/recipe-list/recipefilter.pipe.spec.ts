@@ -3,7 +3,7 @@ import { recipefilterPipe } from './recipefilter.pipe';
 describe('recipefilterPipe', () => {
   let filterPipe: recipefilterPipe;
 
-  // synchronous beforeEach
+  // Will get executed before each test cases get executes.
   beforeEach(() => {
     filterPipe = new recipefilterPipe();
   });

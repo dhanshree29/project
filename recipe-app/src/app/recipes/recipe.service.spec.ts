@@ -69,8 +69,7 @@ describe('RecipeService', () => {
   it('should allow deleting recipe', () => {
     recipeService.deleteRecipe(1);
     recipeService.recipeCount.subscribe(
-      response => expect(response).toEqual(2),
-      fail
+      response => expect(response).toEqual(2)
     );
   });
 

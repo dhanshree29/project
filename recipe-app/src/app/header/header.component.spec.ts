@@ -8,7 +8,7 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     /*
      * test bed is basically angular utility object and So this allows
      * us to configure the modules for our testing. what we do here is simply declare
@@ -22,8 +22,8 @@ describe('HeaderComponent', () => {
      based setup you then need to execute compile components to compile them */
     fixture = TestBed.createComponent(HeaderComponent); // Here we create a component in testing environment
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+    fixture.detectChanges(); // Detect changes manually so that the template gets render.
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

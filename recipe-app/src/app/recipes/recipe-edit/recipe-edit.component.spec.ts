@@ -19,20 +19,16 @@ describe('RecipeEditComponent', () => {
   let router: Router;
   let dataService: RecipeService;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule, BrowserAnimationsModule],
       declarations: [RecipeEditComponent]
     })
       .compileComponents();
     router = TestBed.get(Router);
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(RecipeEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component.ngOnInit();
     dataService = fixture.debugElement.injector.get(RecipeService);
   });
 
@@ -51,7 +47,7 @@ describe('RecipeEditComponent', () => {
       expect(navArgs).toEqual(['../']);
     }));
 
-  it('Onclick of submit button should update recipe', async(() => {
+  it('Onclick of submit button should update recipe', () => {
       component.editMode = true;
       fixture.detectChanges();
       const button = fixture.debugElement.query(By.css('.submit-btn')).nativeElement;
@@ -68,9 +64,9 @@ describe('RecipeEditComponent', () => {
         instructions: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         creationDate: '04-10-2019 12:30'
       });
-    }));
+    });
 
-  it('Onclick of submit button should add recipe', async(() => {
+  it('Onclick of submit button should add recipe', () => {
       component.editMode = false;
       fixture.detectChanges();
       const button = fixture.debugElement.query(By.css('.submit-btn')).nativeElement;
@@ -87,7 +83,7 @@ describe('RecipeEditComponent', () => {
         instructions: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         creationDate: '04-10-2019 12:30'
       });
-    }));
+    });
 
   it('Onclick of add ingredient button should call onAddIngredient', () => {
     const button = fixture.debugElement.query(By.css('.add-item')).nativeElement;
