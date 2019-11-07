@@ -16,16 +16,16 @@ describe('RecipeListComponent', () => {
   let component: RecipeListComponent;
   let fixture: ComponentFixture<RecipeListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule],
+      imports: [FormsModule,  RouterTestingModule, HttpClientTestingModule],
       declarations: [RecipeListComponent, RecipeItemComponent, RecipesearchPipe, recipefilterPipe],
 
     }).compileComponents();
     fixture = TestBed.createComponent(RecipeListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -42,7 +42,6 @@ describe('RecipeListComponent', () => {
 
   it('should call FetchRecipe for listing recipes', async(() => {
     // Here we create a component in testing environment.
-    fixture.detectChanges();
     component = fixture.componentInstance;
 
     const dataService = fixture.debugElement.injector.get(RecipeService);
@@ -74,7 +73,6 @@ describe('RecipeListComponent', () => {
   }));
 
   it('should check for the fetchRecipes error call', async(() => {
-    fixture.detectChanges();
     component = fixture.componentInstance;
 
     const dataService = fixture.debugElement.injector.get(RecipeService);

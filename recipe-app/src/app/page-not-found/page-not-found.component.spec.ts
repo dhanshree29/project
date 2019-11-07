@@ -10,18 +10,18 @@ describe('PageNotFoundComponent', () => {
         PageNotFoundComponent
       ],
     });
-	fixture = TestBed.createComponent(PageNotFoundComponent); // Here we create a component in testing environment
+    fixture = TestBed.createComponent(PageNotFoundComponent); // Here we create a component in testing environment
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create the pagenotfound', async(() => {
+  it('should create the pagenotfound', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it('should render message pagenotfound in a h3 tag', async(() => {
+  it('should render message pagenotfound in a h3 tag', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h3').textContent).toContain('This page was not Found');
-  }));
+  });
 
 });

@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require('express'); // Use the express module.
 const bodyParser = require('body-parser');
 
-const app = express();
+const app = express(); // create an object of express.
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 // Middleware to set headers.
 app.use((req, res, next) => {

@@ -8,7 +8,6 @@ describe('RecipesearchPipe', () => {
   });
 
   it('create an instance', () => {
-    // const pipe = new RecipesearchPipe();
     expect(searchPipe).toBeTruthy();
   });
 

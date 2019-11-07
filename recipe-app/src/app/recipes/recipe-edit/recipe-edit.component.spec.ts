@@ -43,7 +43,7 @@ describe('RecipeEditComponent', () => {
       button.click();
       fixture.detectChanges();
       component.onCancel();
-      const navArgs = spy.calls.first().args[0];
+      const navArgs = spy.calls.first().args[0]; // array of arguments recived in first call
       expect(navArgs).toEqual(['../']);
     }));
 
